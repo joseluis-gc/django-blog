@@ -1,4 +1,9 @@
+{% load static %}
+
 <h2>hi</h2>
+
+<img src="{% static 'portfolio/trazo.jpg' %}">
+
 {% for project in projects %}
 
 {{project.title}}
