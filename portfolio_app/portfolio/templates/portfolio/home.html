@@ -1,11 +1,81 @@
+{% extends 'portfolio/base.html' %}
 {% load static %}
 
-<h2>hi</h2>
 
-<img src="{% static 'portfolio/trazo.jpg' %}">
 
-{% for project in projects %}
+{% block content %}
+<br><br>
+<header style="height: 600px;"  class="backgrounddraw py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-5 mb-2">Hi! Welcome to my Django App</h1>
+          <p class="lead mb-5 text-white-50">This is a simple Django app powered by a mysql database, you can clone this project and mess around with it.</p>
+          <a  href="github.com/" class="btn btn-warning center">Github</a>
+          <a href="{% url 'blog:all_blogs' %}" class="btn btn-success center">View Blog</a>
 
-{{project.title}}
+        </div>
+      </div>
+    </div>
+</header>
 
-{% endfor %}
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <h2>About Me</h2>
+        <hr>
+        <img style="border-radius: 60px;" class="img-fluid text-center center-block" src="{% static 'portfolio/trazo.jpg' %}">
+   
+      </div>
+      <div class="col-md-8 mb-5">
+        <br>
+        <br>
+        <br/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+      </div>
+    </div>
+    <!-- /.row -->
+
+
+    <div class="row">
+        
+        <div class="col-lg-12">
+            <h2>Portfolio</h2>
+            <br><br>
+
+        </div>
+
+        {% for project in projects %}
+        <div class="card" style="width: 18rem;">
+            <img style="width: 100%;" src="{{project.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{project.title}}</h5>
+              <p class="card-text">{{project.title}}</p>
+              <!--
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+              -->
+            </div>
+        </div>
+        {% endfor %}
+
+        
+
+        
+
+        
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
